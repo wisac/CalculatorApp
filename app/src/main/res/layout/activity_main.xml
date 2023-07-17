@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:background="#4323"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:orientation="horizontal">
+        
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancelBtn"
+                style="@style/materialButtonStyle"
+                app:backgroundTint="@color/cancel"
+                android:text="C"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/memPlusBtn"
+                style="@style/materialButtonStyle"
+                app:backgroundTint="@color/memory"
+                android:text="M+"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/memClearBtn"
+                style="@style/materialButtonStyle"
+                app:backgroundTint="@color/memory"
+                android:text="MC"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/plusBtn"
+                style="@style/materialButtonStyle"
+                app:backgroundTint="@color/sign"
+                android:text="+"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button7"
+                style="@style/materialButtonStyle"
+                android:text="7"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button8"
+                style="@style/materialButtonStyle"
+                android:text="8"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button9"
+                style="@style/materialButtonStyle"
+                android:text="9"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/minusBtn"
+                style="@style/materialButtonStyle"
+                app:backgroundTint="@color/sign"
+                android:text="-"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button4"
+                style="@style/materialButtonStyle"
+                android:text="4"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button5"
+                style="@style/materialButtonStyle"
+                android:text="5"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button6"
+                style="@style/materialButtonStyle"
+                android:text="6"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mulBtn"
+                style="@style/materialButtonStyle"
+                app:backgroundTint="@color/sign"
+                android:text="x"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button1"
+                style="@style/materialButtonStyle"
+                android:text="1"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button2"
+                style="@style/materialButtonStyle"
+                android:text="2"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button3"
+                style="@style/materialButtonStyle"
+                android:text="3"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/divBtn"
+                style="@style/materialButtonStyle"
+                app:backgroundTint="@color/sign"
+                android:text="/"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dotBtn"
+                style="@style/materialButtonStyle"
+                android:text="."/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button0"
+                style="@style/materialButtonStyle"
+                android:text="0"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/equalBtn"
+                android:layout_width="182dp"
+                style="@style/materialButtonStyle"
+                app:backgroundTint="@color/equalsign"
+                android:text="="/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
