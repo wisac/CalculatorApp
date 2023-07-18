@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     void noticeClickedButton(MaterialButton button) {
         button.setOnClickListener(this);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,12 +109,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-    MaterialButton button = (MaterialButton) view;
-    String buttonText = button.getText().toString(); // getting value of clicked button
-    //resultText.setText(buttonText);
+        // get values of clicked buttons
+        MaterialButton button = (MaterialButton) view;
+        String clickedbuttonText = button.getText().toString(); // getting value of clicked button
+        String numbersToCalculate = resultText.getText().toString();
+        numbersToCalculate += clickedbuttonText;
+        resultText.setText(numbersToCalculate);
+
 
     }
-
 
 
 }
