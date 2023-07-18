@@ -15,10 +15,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/resultText"
+            android:id="@+id/calculationText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/calculationText"
+            android:layout_above="@id/resultText"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="45dp"
@@ -28,7 +28,7 @@
             android:textSize="60dp" />
 
         <TextView
-            android:id="@+id/calculationText"
+            android:id="@+id/resultText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/buttons_layout"

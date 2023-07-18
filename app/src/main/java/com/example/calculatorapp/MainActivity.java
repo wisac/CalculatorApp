@@ -11,8 +11,8 @@ import com.google.android.material.button.MaterialButton;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Text views
-    TextView resultText;
     TextView calculationText;
+    TextView answerText;
     // Buttons
     MaterialButton cancelBtn;
     MaterialButton memPlusBtn;
@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
 
-        resultText = findViewById(R.id.resultText);
         calculationText = findViewById(R.id.calculationText);
+        answerText = findViewById(R.id.resultText);
 
         //assign xml buttons and add onlick listener to each so when a button is click, we know
         cancelBtn = findViewById(R.id.cancelBtn);
@@ -111,10 +111,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         // get values of clicked buttons
         MaterialButton button = (MaterialButton) view;
-        String clickedbuttonText = button.getText().toString(); // getting value of clicked button
-        String numbersToCalculate = resultText.getText().toString();
+        // get value of clicked button
+        String clickedbuttonText = button.getText().toString();
+        //get data alredy entered
+        String numbersToCalculate = calculationText.getText().toString();
+        //append new entered data to old data on screen
         numbersToCalculate += clickedbuttonText;
-        resultText.setText(numbersToCalculate);
+        //display all entered data on screen
+        calculationText.setText(numbersToCalculate);
+
+
 
 
     }
