@@ -2,161 +2,218 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".MainActivity">
+<!--Results layout-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/screen"
+        android:id="@+id/result_layout"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/calculationText"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="45dp"
+            android:text="0"
+            android:textAlignment="textEnd"
+            android:textColor="@color/darkGreen"
+            android:textSize="40dp" />
 
+        <TextView
+            android:id="@+id/calculationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/buttons_layout"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:text="0"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="60dp" />
+    </LinearLayout>
+
+<!--Buttons Layout-->
     <LinearLayout
         android:id="@+id/buttons_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-
         android:background="#4323"
-
         android:orientation="vertical">
 
+        <!--ROW 1-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dp"
             android:orientation="horizontal">
-        
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cancelBtn"
                 style="@style/materialButtonStyle"
+                android:layout_weight="1"
+                android:text="C"
                 app:backgroundTint="@color/cancel"
-                android:text="C"/>
+                tools:ignore="HardcodedText" />
 
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/memPlusBtn"
                 style="@style/materialButtonStyle"
+                android:layout_weight="1"
+                android:text="M+"
                 app:backgroundTint="@color/memory"
-                android:text="M+"/>
+                tools:ignore="HardcodedText" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/memClearBtn"
                 style="@style/materialButtonStyle"
-                app:backgroundTint="@color/memory"
-                android:text="MC"/>
+                android:layout_weight="1"
+                android:text="MC"
+                app:backgroundTint="@color/memory" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/plusBtn"
                 style="@style/materialButtonStyle"
-                app:backgroundTint="@color/sign"
-                android:text="+"/>
+                android:layout_weight="1"
+                android:text="+"
+                app:backgroundTint="@color/sign" />
         </LinearLayout>
+
+        <!--ROW 2-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dp"
             android:orientation="horizontal">
 
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button7"
                 style="@style/materialButtonStyle"
-                android:text="7"/>
+                android:layout_weight="1"
+                android:text="7" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button8"
                 style="@style/materialButtonStyle"
-                android:text="8"/>
+                android:layout_weight="1"
+                android:text="8" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button9"
                 style="@style/materialButtonStyle"
-                android:text="9"/>
+                android:layout_weight="1"
+                android:text="9" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/minusBtn"
                 style="@style/materialButtonStyle"
-                app:backgroundTint="@color/sign"
-                android:text="-"/>
+                android:layout_weight="1"
+                android:text="-"
+                app:backgroundTint="@color/sign" />
         </LinearLayout>
+
+        <!--ROW 3-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dp"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button4"
                 style="@style/materialButtonStyle"
-                android:text="4"/>
+                android:layout_weight="1"
+                android:text="4" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button5"
                 style="@style/materialButtonStyle"
-                android:text="5"/>
+                android:layout_weight="1"
+                android:text="5" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button6"
                 style="@style/materialButtonStyle"
-                android:text="6"/>
+                android:layout_weight="1"
+                android:text="6" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mulBtn"
                 style="@style/materialButtonStyle"
-                app:backgroundTint="@color/sign"
-                android:text="x"/>
+                android:layout_weight="1"
+                android:text="x"
+                app:backgroundTint="@color/sign" />
         </LinearLayout>
+
+        <!--ROW 4-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dp"
             android:orientation="horizontal">
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button1"
                 style="@style/materialButtonStyle"
-                android:text="1"/>
+                android:layout_weight="1"
+                android:text="1" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button2"
                 style="@style/materialButtonStyle"
-                android:text="2"/>
+                android:layout_weight="1"
+                android:text="2" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button3"
                 style="@style/materialButtonStyle"
-                android:text="3"/>
+                android:layout_weight="1"
+                android:text="3" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/divBtn"
                 style="@style/materialButtonStyle"
-                app:backgroundTint="@color/sign"
-                android:text="/"/>
+                android:layout_weight="1"
+                android:text="/"
+                app:backgroundTint="@color/sign" />
         </LinearLayout>
+        <!--ROW 5-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dp"
             android:orientation="horizontal">
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/dotBtn"
                 style="@style/materialButtonStyle"
-                android:text="."/>
+                android:layout_weight="1"
+                android:text="." />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button0"
                 style="@style/materialButtonStyle"
-                android:text="0"/>
+                android:layout_weight="1"
+                android:text="0" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/equalBtn"
-                android:layout_width="182dp"
                 style="@style/materialButtonStyle"
-                app:backgroundTint="@color/equalsign"
-                android:text="="/>
+                android:layout_width="10dp"
+                android:layout_weight="2"
+                android:text="="
+                app:backgroundTint="@color/equalsign" />
 
 
         </LinearLayout>
-
 
 
     </LinearLayout>
