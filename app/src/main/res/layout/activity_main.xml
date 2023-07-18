@@ -24,8 +24,8 @@
             android:layout_marginBottom="45dp"
             android:text="0"
             android:textAlignment="textEnd"
-            android:textColor="@color/darkGreen"
-            android:textSize="40dp" />
+            android:textColor="@color/black"
+            android:textSize="60dp" />
 
         <TextView
             android:id="@+id/calculationText"
@@ -34,10 +34,11 @@
             android:layout_above="@id/buttons_layout"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
             android:text="0"
             android:textAlignment="textEnd"
-            android:textColor="@color/black"
-            android:textSize="60dp" />
+            android:textColor="@color/darkGreen"
+            android:textSize="40dp" />
     </LinearLayout>
 
 <!--Buttons Layout-->
