@@ -1,21 +1,29 @@
 package com.example.calculatorapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.button.MaterialButton;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
+
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
+{
 
     // Text views
     TextView calculationText;
     TextView answerText;
     // Buttons
     MaterialButton cancelBtn;
-    MaterialButton memPlusBtn;
+    MaterialButton percentBtn;
     MaterialButton memClearBtn;
     MaterialButton plusBtn;
     MaterialButton minusBtn;
@@ -35,12 +43,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MaterialButton dotBtn;
 
     //function for settings on click listener to all buttons
-    void noticeClickedButton(MaterialButton button) {
+    void noticeClickedButton(MaterialButton button)
+    {
         button.setOnClickListener(this);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -53,8 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         noticeClickedButton(cancelBtn);
         memClearBtn = findViewById(R.id.memClearBtn);
         noticeClickedButton(memClearBtn);
-        memPlusBtn = findViewById(R.id.memPlusBtn);
-        noticeClickedButton(memPlusBtn);
+        percentBtn = findViewById(R.id.memPlusBtn);
+        noticeClickedButton(percentBtn);
 
         plusBtn = findViewById(R.id.plusBtn);
         noticeClickedButton(plusBtn);
@@ -107,23 +117,116 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    void clearScreen(TextView text)
+    {
+        text.setText("");
+    }
+
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)
+    {
         // get values of clicked buttons
         MaterialButton button = (MaterialButton) view;
         // get value of clicked button
         String clickedbuttonText = button.getText().toString();
-        //get data alredy entered
+        if (clickedbuttonText.equals("x"))
+            clickedbuttonText = "*";
+        if (clickedbuttonText.equals("%"))
+            clickedbuttonText = "*0.01";
+        //get data already entered
         String numbersToCalculate = calculationText.getText().toString();
-        //append new entered data to old data on screen
-        numbersToCalculate += clickedbuttonText;
-        //display all entered data on screen
-        calculationText.setText(numbersToCalculate);
+
+        if (clickedbuttonText.equals("C"))
+        {
+            answerText.setText("0");
+            clearScreen(calculationText);
+            return;
+        }
+        else
+        {
+                if (calculationText.length() > 9 && calculationText.length() <= 15)
+                {
+                    calculationText.setTextSize(40);
+                    answerText.setTextSize(20);
+                }
+                else if (calculationText.length() > 15)
+                {
+                    calculationText.setTextSize(30);
+                    answerText.setTextSize(20);
+                }
+                else
+                {
+                    calculationText.setTextSize(50);
+                    answerText.setTextSize(30);
+                }
+                numbersToCalculate += clickedbuttonText;
+        }
 
 
 
+        if (clickedbuttonText.equals("="))
+        {
 
+
+            if (calculationText.getText().toString().endsWith("+") || calculationText.getText().toString().endsWith("-")
+                    || calculationText.getText().toString().endsWith("*") || calculationText.getText().toString().endsWith("/"))
+            {
+                calculationText.setText("Syntax Error");
+                answerText.setText("Syntax Error");
+            }
+            else
+            {
+                calculationText.setText(answerText.getText());
+                clearScreen(answerText);
+            }
+            return;
+        }
+
+//        Calculate result and display to screen.
+        if (!calculationText.getText().equals("Syntax Error"))
+        {
+            calculationText.setText(numbersToCalculate);
+
+            String answer = getAnswer(numbersToCalculate);
+
+            if (!answer.equals("Error"))
+            {
+                answerText.setText(answer);
+            }
+
+        }
     }
 
+
+
+
+    String getAnswer(String expression)
+    {
+
+        try
+        {
+            Context context = Context.enter();
+            context.setOptimizationLevel(-1);
+            Scriptable scriptable = context.initSafeStandardObjects();
+            String answer = context.evaluateString(scriptable, expression, "Javascript",
+                    1, null).toString();
+
+            if (answer.equals("Infinity"))
+            {
+                return "Zero divisionError";
+            }
+            DecimalFormat dpFormatter = new DecimalFormat("#.####");
+            dpFormatter.setRoundingMode(RoundingMode.CEILING);
+            double resultNumber = Double.parseDouble(answer);
+
+            return dpFormatter.format(resultNumber);
+//            return answer;
+        }
+        catch (Exception error)
+        {
+            return "Error";
+        }
+
+    }
 
 }
